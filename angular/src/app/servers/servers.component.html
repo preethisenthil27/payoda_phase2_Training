@@ -1,0 +1,36 @@
+<h3>List of servers</h3>
+<p >
+    server wuth num{{ServerId}}
+    is currently {{ServerStatus}}
+</p>
+
+<p>
+    {{'server wuth num'}}{{getServerId()}}
+    is currently {{getServerStatus()}}</p>
+
+    <label> Server Name:</label>
+    <!-- <input type="text" class="form-control"/>
+    (input)="onServerNameEntry($event)"/>
+    <br /> -->
+    <input type="text"
+    [(ngModel)]="ServerName"/><br>
+
+    <p>{{ServerName}}</p>
+
+
+<button class="btn btn-primary" [disabled]="!addNewUser" 
+(click)="OnServerCreation()">
+    Add New Server</button>
+
+    <p *ngFor ="let server of ServerList">{{server}}</p>
+    <!-- <p *ngIf="ServerCreated=='created'">{{ServerCreated}}</p> -->
+    <p  *ngIf="ServerCreated=='created';else preethi">
+    {{ServerCreated}}</p>
+
+    <ng-template #preethi>
+        <p>{{ServerCreated}}</p>
+    </ng-template>
+
+<p>{{ServerCreated}}</p>
+<!-- <p> {{addNewUser }}with string Interpolation </p> -->
+<p [innerText]="addNewUser"></p>
